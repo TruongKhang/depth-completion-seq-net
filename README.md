@@ -1,6 +1,8 @@
 # Sequential Depth Completion with Confidence Estimation for 3D Model Reconstruction
 ### Introduction 
-This is a deep neural network for depth completion using sequence information. 
+This is a deep neural network for depth completion using sequence information.
+
+The demo video can be found [here](https://youtu.be/g0GUbv6nbiM)
 
 The code will be release soon!
 
