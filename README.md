@@ -2,7 +2,7 @@
 ### Introduction 
 This is a deep neural network for depth completion using sequence information.
 
-The full demo video can be found [here](https://youtu.be/g0GUbv6nbiM)
+The full demo video can be found [here](https://www.youtube.com/watch?v=rgxKBf1XqyQ)
 
 ![](ezgif.com-video-to-gif.gif)
 
