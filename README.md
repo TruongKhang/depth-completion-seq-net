@@ -2,11 +2,9 @@
 ### Introduction 
 This is a deep neural network for depth completion using sequence information.
 
-The full demo video can be found [here](https://www.youtube.com/watch?v=rgxKBf1XqyQ)
+The full demo video can be found [here](https://www.youtube.com/watch?v=rgxKBf1XqyQ). Link to our paper [here](https://ieeexplore.ieee.org/abstract/document/9286507)
 
 ![](ezgif.com-video-to-gif.gif)
-
-Link to our paper [here](https://ieeexplore.ieee.org/abstract/document/9286507)
 
 ### Installation
 
@@ -82,7 +80,8 @@ Predict the depth map from the image and sparse depth input. There's no need gro
 
     python predict.py --resume <path to pretrained model> --save_folder <folder to save the results>
     
-If you find this source code helpful, please cite this
+### Citation
+If you find this source code helpful for your research, please cite this
 ```
 @ARTICLE{9286507,
   author={K. {Truong Giang} and S. {Song} and D. {Kim} and S. {Choi}},
