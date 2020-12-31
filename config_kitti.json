@@ -1,0 +1,58 @@
+{
+    "name": "SeqModel",
+    "n_gpu": 4,
+    "val_img_size": [352, 1216],
+
+    "arch": {
+        "type": "DepthCompletionNet",
+        "args": {
+        }
+    },
+    "data_loader": {
+        "type": "KittiLoaderv2",
+        "args":{
+            "kitti_depth_dir": "/home/khang/project/kitti_dataset/kitti_depth",
+            "kitti_raw_dir": "/home/khang/project/kitti_dataset/kitti_raw",
+            "batch_size": 4,
+            "shuffle": true,
+            "img_size": [352, 1216],
+            "num_workers": 4,
+            "scale_factor": 1,
+            "seq_size": 10,
+            "cam_ids": [2,3],
+            "img_resize": [352, 1216]
+        }
+    },
+    "optimizer": {
+        "type": "Adam",
+        "args":{
+            "lr": 0.0001,
+            "weight_decay": 0,
+            "amsgrad": true
+        }
+    },
+    "loss": "multi_losses_kitti",
+    "metrics": [
+        "mae", "rmse", "mre"
+    ],
+    "lr_scheduler": {
+        "type": "StepLR",
+        "args": {
+            "step_size": 10,
+            "gamma": 0.5
+        }
+    },
+    "trainer": {
+        "epochs": 20,
+        "seq": true,
+        "save_dir": "saved/",
+        "save_period": 1,
+        "verbosity": 2,
+        "logging_every": 200,
+        "monitor": "min val_rmse",
+        "early_stop": 20,
+        "tensorboard": false,
+        "cfd_thresh": 1
+    }
+}
+

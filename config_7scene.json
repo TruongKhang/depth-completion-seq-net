@@ -1,0 +1,56 @@
+{
+    "name": "SeqModel",
+    "n_gpu": 3,
+    "val_img_size": [480, 640],
+
+    "arch": {
+        "type": "DepthCompletionNet",
+        "args": {
+            "pretrained": true,
+            "feature_root": 64
+        }
+    },
+    "data_loader": {
+        "type": "SevenSceneLoader",
+        "args":{
+            "root_dir": "/mnt/sdb/khang/7scene",
+            "batch_size": 16,
+            "shuffle": true,
+            "img_size": [480, 640],
+            "num_workers": 8,
+            "scale_factor": 10,
+            "seq_size": 50,
+            "img_resize": [240, 320]
+        }
+    },
+    "optimizer": {
+        "type": "Adam",
+        "args":{
+            "lr": 0.0001,
+            "weight_decay": 0,
+            "amsgrad": true
+        }
+    },
+    "loss": "multi_losses",
+    "metrics": [
+        "mae", "rmse"
+    ],
+    "lr_scheduler": {
+        "type": "StepLR",
+        "args": {
+            "step_size": 3,
+            "gamma": 0.5
+        }
+    },
+    "trainer": {
+        "epochs": 30,
+        "seq": true,
+        "save_dir": "saved/",
+        "save_period": 1,
+        "verbosity": 2,
+        "logging_every": 100,
+        "monitor": "min val_rmse",
+        "early_stop": 20,
+        "tensorboard": false
+    }
+}

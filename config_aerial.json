@@ -1,0 +1,55 @@
+{
+    "name": "SeqModel",
+    "n_gpu": 2,
+    "val_img_size": [480, 752],
+
+    "arch": {
+        "type": "DepthCompletionNet",
+        "args": {
+        }
+    },
+    "data_loader": {
+        "type": "VISIMLoader",
+        "args":{
+            "root_dir": "/home/khang/project/aerial_v2",
+            "batch_size": 4,
+            "shuffle": true,
+            "img_size": [480, 752],
+            "num_workers": 4,
+            "scale_factor": 1,
+            "seq_size": 10,
+            "img_resize": [480, 752]
+        }
+    },
+    "optimizer": {
+        "type": "Adam",
+        "args":{
+            "lr": 0.0001,
+            "weight_decay": 0,
+            "amsgrad": true
+        }
+    },
+    "loss": "multi_losses",
+    "metrics": [
+        "mae", "rmse", "mre"
+    ],
+    "lr_scheduler": {
+        "type": "StepLR",
+        "args": {
+            "step_size": 10,
+            "gamma": 0.5
+        }
+    },
+    "trainer": {
+        "epochs": 50,
+        "seq": true,
+        "save_dir": "saved/",
+        "save_period": 1,
+        "verbosity": 2,
+        "logging_every": 200,
+        "monitor": "min val_rmse",
+        "early_stop": 20,
+        "tensorboard": false,
+        "cfd_thresh": 5
+    }
+}
