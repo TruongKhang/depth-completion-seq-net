@@ -6,7 +6,7 @@ The full demo video can be found [here](https://www.youtube.com/watch?v=rgxKBf1X
 
 ![](ezgif.com-video-to-gif.gif)
 
-The code will be release soon!
+Link to our paper [here](https://ieeexplore.ieee.org/abstract/document/9286507)
 
 ### Installation
 
@@ -81,3 +81,16 @@ Prediction:
 Predict the depth map from the image and sparse depth input. There's no need ground truth depth (see the structure of `test` folder)
 
     python predict.py --resume <path to pretrained model> --save_folder <folder to save the results>
+    
+If you find this source code helpful, please cite this
+```
+@ARTICLE{9286507,
+  author={K. {Truong Giang} and S. {Song} and D. {Kim} and S. {Choi}},
+  journal={IEEE Robotics and Automation Letters}, 
+  title={Sequential Depth Completion With Confidence Estimation for 3D Model Reconstruction}, 
+  year={2021},
+  volume={6},
+  number={2},
+  pages={327-334},
+  doi={10.1109/LRA.2020.3043172}}
+```
