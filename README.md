@@ -12,8 +12,8 @@ The full demo video can be found [here](https://www.youtube.com/watch?v=rgxKBf1X
     conda activate venv
     conda install pytorch==1.1.0 torchvision cudatoolkit=9.0 -c pytorch
     conda install -c conda-forge opencv
-    pip install pycuda
-    pip install Cython
+    pip install pycuda Cython pandas pykitti scikit-image scipy
+
 
 Using pip for installing the other dependence packages
 
