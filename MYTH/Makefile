@@ -12,7 +12,7 @@ PYTORCH_INCLUDES := $(shell python -c 'from torch.utils.cpp_extension import inc
 PYTORCH_LIBRARIES := $(shell python -c 'from torch.utils.cpp_extension import library_paths; [print(p) for p in library_paths()]')
 
 # CUDA ROOT DIR that contains bin/ lib64/ and include/
-CUDA_DIR := /usr/local/cuda-9.0
+CUDA_DIR := /usr/local/cuda-10.1
 # CUDA_DIR := $(shell python -c 'from torch.utils.cpp_extension import _find_cuda_home; print(_find_cuda_home())')
 
 # Assume pytorch > v1.1
