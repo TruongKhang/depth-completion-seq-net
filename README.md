@@ -12,8 +12,8 @@ The full demo video can be found [here](https://www.youtube.com/watch?v=rgxKBf1X
     conda activate venv
     conda install pytorch==1.1.0 torchvision cudatoolkit=9.0 -c pytorch
     conda install -c conda-forge opencv
-    pip install pycuda
-    pip install Cython
+    pip install pycuda Cython pandas pykitti scikit-image scipy
+
 
 Using pip for installing the other dependence packages
 
@@ -54,6 +54,33 @@ Dataset structure should look like this:
     |-- sequence 2
     ...
 ```
+For kitti, we use two datasets (raw and depth-completion), the split.txt file is inside data_loaders folder test.txt and train.txt
+
+for the raw use this. (look here - https://github.com/nianticlabs/monodepth2)
+
+use wget https://github.com/mrharicot/monodepth/blob/master/utils/kitti_archives_to_download.txt / wget -i kitti_archives_to_download.txt / 
+unzip "*.zip"
+
+```
+|--raw_dataset # 
+    |-- 2011_09_26
+        |-- calib_velo_to_cam.txt
+        |-- calib_imu_to_velo.txt
+        |-- calib_cam_to_cam.txt
+        |-- 2011_09_26_drive_0020_sync   # camera-to-world, 4×4 matrix in homogeneous coordinates
+            |-- image_00
+            |-- image_01
+
+    
+    ...
+|--depth_dataset # 
+    |-- data_depth_velodyne # wget https://s3.eu-central-1.amazonaws.com/avg-kitti/data_depth_velodyne.zip
+        
+    |-- data_depth_annotated # https://s3.eu-central-1.amazonaws.com/avg-kitti/data_depth_annotated.zip
+    ...
+
+```
+
     
 ### Training, evaluation end prediction
 Make sure activate your virtual environment before running code:
